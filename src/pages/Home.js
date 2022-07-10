@@ -53,7 +53,8 @@ export const Home = () => {
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.7, delay: 1 }}
               >
-                I LOVE React.js and with the right Libraries and
+                I am a Front-End Developer with an eye for beautiful design and
+                clean code. I LOVE React.js and with the right Libraries and
                 State-Management Systems I can build anything
                 <br />
                 <motion.p
