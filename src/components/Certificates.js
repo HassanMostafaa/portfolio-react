@@ -81,7 +81,14 @@ export const Certificates = ({ slice }) => {
     >
       <div className="cert-title">
         {slice ? (
-          <Link style={{ float: "right" }} to="/certificates">
+          <Link
+            style={{
+              float: "right",
+              transform: "translateY(-20px)",
+              textDecoration: "underline",
+            }}
+            to="/certificates"
+          >
             See More →
           </Link>
         ) : (

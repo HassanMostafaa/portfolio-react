@@ -94,7 +94,14 @@ export const Projects = ({ navSpace }) => {
       style={{ paddingTop: navSpace ? "200px " : "50px" }}
     >
       {!navSpace ? (
-        <Link style={{ float: "right" }} to="/projects">
+        <Link
+          style={{
+            float: "right",
+            transform: "translateY(-20px)",
+            textDecoration: "underline",
+          }}
+          to="/projects"
+        >
           See More →
         </Link>
       ) : (

@@ -481,6 +481,7 @@ nav {
   nav {
     // display: block;
     // text-align: center;
+    padding: 20px 5%;
     .logo {
       font-size: 16px;
     }
@@ -500,11 +501,9 @@ nav {
       .hero-content {
         height: 100%;
         display: block;
-        // text-align: center;
+
 
         .slider-wrapper {
-          // display: none;
-          // outline: 2px solid deeppink;
           min-height: 12vh;
         }
 
@@ -587,6 +586,38 @@ nav {
       div {
         margin: 20px auto;
         width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 650px) {
+  .landing-page {
+    .section2 {
+      .projects {
+        .project {
+          .proj-desc {
+            .proj-txt {
+              margin: 10px 0;
+            }
+            button {
+              width: 100%;
+              margin: 0px 0 10px 0;
+              //   margin-block-start: 10px;
+              // border: 1px solid red;
+            }
+          }
+        }
+      }
+    }
+
+    .certificates-area {
+      .certificates {
+        .certificate {
+          min-width: 80%;
+          margin: 0 auto;
+          // border: 2px solid red;
+        }
       }
     }
   }
