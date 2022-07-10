@@ -2,7 +2,7 @@ $primary-black: #030303;
 $secondary-black: #0e0e0e;
 $primary-white: #fff;
 $secondary-white: #a8a8a8;
-$call-to-action-bg: #2727278a;
+$call-to-action-bg: #1f1f1f;
 
 * {
   margin: 0;
@@ -40,11 +40,12 @@ code {
 nav {
   min-width: 100%;
   margin: 0;
+
   position: fixed;
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  padding: 20px 5%;
+  align-items: flex-start;
+  padding: 20px 10%;
   color: $primary-white;
   z-index: 2;
 
@@ -54,7 +55,13 @@ nav {
 
   .menu {
     text-align: right;
-
+    position: relative;
+    .links {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      width: 100px;
+    }
     .menuIconText {
       margin-right: 50px;
       position: relative;
@@ -62,22 +69,44 @@ nav {
     .menuIconText::after {
       content: "";
       position: absolute;
-      right: -50px;
-      width: 30px;
+      right: -55px;
+      width: 0px;
       top: 50%;
-      height: 1px;
-      background-color: #888;
+      height: 2px;
+      background-color: rgb(59, 59, 59);
+      animation: iconLine 1s forwards;
+      animation-delay: 0s;
     }
+
+    @keyframes iconLine {
+      0% {
+        width: 0px;
+      }
+      100% {
+        width: 35px;
+      }
+    }
+
     .menuIcon {
-      color: red;
       z-index: 2;
       font-size: 60px;
+      cursor: pointer;
       position: relative;
       width: 45px;
       height: 45px;
       font-size: 0.9vw;
       margin: 0 0px 0 20px;
       background-color: $call-to-action-bg;
+      opacity: 0.7;
+      // border: 1px solid red;
+      transition: 0.3s ease-in-out;
+
+      &:hover {
+        transition: 0.3s ease-in-out;
+        background-color: $call-to-action-bg;
+        opacity: 1;
+        border-radius: 5px;
+      }
     }
     .menuIcon span::after {
       content: "";
@@ -85,8 +114,9 @@ nav {
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 5px;
-      height: 5px;
+      width: 6px;
+      height: 6px;
+      border-radius: 2px;
       background-color: $secondary-white;
     }
 
@@ -101,6 +131,11 @@ nav {
     }
   }
 }
+.blurBg {
+  background-color: #00000000;
+  backdrop-filter: blur(5px);
+  min-height: 120px;
+}
 
 .landing-page {
   .hero {
@@ -111,7 +146,7 @@ nav {
     overflow: hidden;
 
     .hero-content {
-      margin-top: 120px;
+      margin-top: 140px;
       .hero-content-txt {
         h1 {
           margin: -2px 0 10px 0;
@@ -155,11 +190,10 @@ nav {
 
       .slider-wrapper {
         position: relative;
-        min-height: 20vh;
+        min-height: 21vh;
         min-width: 90vw;
         margin: 20px 0;
         white-space: nowrap;
-        // overflow: hidden;
 
         .txt {
           line-height: 1;
@@ -171,7 +205,7 @@ nav {
           top: 0;
           pointer-events: none;
           transform: translateX(100vw);
-          -webkit-text-stroke: 0.3px $primary-white;
+          -webkit-text-stroke: 0.5px $primary-white;
         }
 
         .txt1 {
@@ -290,6 +324,65 @@ nav {
       }
     }
   }
+  .certificates-area {
+    background: $primary-black;
+    color: $primary-white;
+    .cert {
+      &-title,
+      &-desc {
+        margin: 0 10%;
+      }
+    }
+
+    .certificates {
+      padding: 20px 0;
+      display: flex;
+      justify-content: flex-start;
+
+      flex-wrap: wrap;
+      gap: 30px;
+      .certificate {
+        border: 0.4px solid rgb(46, 46, 46);
+        max-width: 280px;
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: flex-start;
+
+        .cert {
+          &-platform {
+            margin: 10px 0;
+          }
+
+          &-img {
+            margin: 10px 0;
+            img {
+              width: 100%;
+              height: 100%;
+            }
+          }
+
+          &-txt {
+            margin: 20px 0;
+
+            p {
+              color: $secondary-white;
+              text-align: justify;
+              font-size: 15px;
+              margin: 5px 0;
+            }
+          }
+        }
+        button {
+          background-color: $call-to-action-bg;
+          border: 1px solid $secondary-white;
+          padding: 8px 15px;
+          color: $primary-white;
+        }
+      }
+    }
+  }
 
   .section2 {
     padding: 100px 10%;
@@ -308,18 +401,22 @@ nav {
       margin: 0 auto;
 
       .project {
-        margin: 30px 0;
+        margin: 20px 0;
+        padding: 20px;
+        // border: 1px solid green;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: flex-start;
+
         gap: 40px;
+
         .proj-img {
           img {
-            width: 100%; /* or any custom size */
             max-width: 400px;
             object-fit: cover;
             border-radius: 3px;
+            max-height: 300px;
           }
         }
         .proj-desc {
@@ -356,12 +453,12 @@ nav {
   }
 
   .section3 {
-    padding: 100px 10%;
+    padding: 0px 10%;
     background-color: $primary-black;
     color: $primary-white;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+    // display: flex;
+    // justify-content: space-between;
+    // align-items: flex-start;
 
     .info {
       p {
@@ -382,8 +479,8 @@ nav {
     width: 90%;
   }
   nav {
-    display: block;
-    text-align: center;
+    // display: block;
+    // text-align: center;
     .logo {
       font-size: 16px;
     }

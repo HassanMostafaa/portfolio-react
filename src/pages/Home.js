@@ -1,22 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { BsGithub } from "react-icons/bs";
-import { SectionTwo } from "../components/SectionTwo";
+import { Projects } from "../components/Projects";
 import { SectionThree } from "../components/SectionThree";
 import { ImProfile } from "react-icons/im";
-import { useNavigate } from "react-router-dom";
 import { About } from "../components/About";
+import Spline from "@splinetool/react-spline";
 
 export const Home = () => {
-  const navigate = useNavigate();
   const [circleText] = useState(
     "Design • Code • Review • Debug • Code • Review • Debug "
   );
   const [show3dObj, setShow3dObj] = useState(false);
   useEffect(() => {
-    setTimeout(() => {
-      setShow3dObj(true);
-    }, 2500);
+    setShow3dObj(true);
   }, []);
 
   return (
@@ -37,44 +34,38 @@ export const Home = () => {
             <motion.span
               initial={{ x: -50, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 1 }}
+              transition={{ duration: 1, delay: 1.5 }}
               style={{ letterSpacing: "3px" }}
             >
               Hi, I am
             </motion.span>
             <motion.h1
-              initial={{ x: -50, opacity: 0 }}
+              initial={{ x: -10, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 1, delay: 0.5 }}
+              transition={{ duration: 0.4, delay: 1.2 }}
             >
               Hassan Mostafa
             </motion.h1>
             <div className="my-details">
-              {/* <motion.p
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 0.8 }}
-              >
-                I have a diverse set of skills, ranging from design with Figma,
-                to logical thinking and problem sovling with Javascript and
-                Python. If I am not working on a freelancing gig I am constently
-                learning and practicing on personal Projects which I'd love for
-                you take a look at on my Github 
-              </motion.p> */}
               <motion.div
                 className="parent-para"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 1, delay: 1 }}
+                initial={{ y: -10, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.7, delay: 1 }}
               >
                 I LOVE React.js and with the right Libraries and
                 State-Management Systems I can build anything
                 <br />
-                <p className="secondary-paragraph">
+                <motion.p
+                  initial={{ y: -40, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ duration: 0.8, delay: 1.5 }}
+                  className="secondary-paragraph"
+                >
                   Main Skills : React, Redux-Redux/toolkit, Typescript,
                   HTML/CSS, Sass, Nodejs, Express, MongoDB, Git, Firebase, Figma{" "}
                   <br />
-                </p>
+                </motion.p>
                 <button
                   onClick={() => {
                     window.open("https://github.com/HassanMostafaa", "_blank"); //to open new page
@@ -119,7 +110,12 @@ export const Home = () => {
           </div>
         </div>
 
-        <div className="spinning-circle">
+        <motion.div
+          className="spinning-circle"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.5, duration: 1 }}
+        >
           {circleText
             .split("")
             .reverse()
@@ -130,7 +126,7 @@ export const Home = () => {
             ))}
 
           <div className="laptop">
-            {show3dObj && (
+            {/* {show3dObj && (
               <iframe
                 src="https://my.spline.design/noiselightscopy-72899cce544f6215cefa58f237a1d02c/"
                 frameBorder={0}
@@ -138,14 +134,17 @@ export const Home = () => {
                 title="splineObj"
                 height="100%"
               ></iframe>
+            )} */}
+            {show3dObj && (
+              <Spline scene="https://prod.spline.design/SOMjRPCzmhEvDyAw/scene.splinecode" />
             )}
           </div>
-        </div>
+        </motion.div>
       </div>
 
       <About />
-      <SectionTwo />
-      <SectionThree />
+      <Projects navSpace={false} />
+      <SectionThree navSpace={false} />
     </div>
   );
 };

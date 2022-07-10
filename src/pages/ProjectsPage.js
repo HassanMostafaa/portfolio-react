@@ -1,5 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { Projects } from "../components/Projects";
 
 export const ProjectsPage = () => {
-  return <div>ProjectsPage</div>;
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  return (
+    <div className="landing-page">
+      <Projects navSpace={true} />
+    </div>
+  );
 };
