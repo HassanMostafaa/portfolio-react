@@ -79,7 +79,7 @@ export const Nav = () => {
                 className="nav-link"
               >
                 <a
-                  href="https://drive.google.com/file/d/17N3aYFRv1n6pfyIVJqTDXFNX9lyR6xg-/view?usp=sharing"
+                  href="https://drive.google.com/file/d/1-5Q30O-qPWUh9uUV2oNT2hkAuF-Ln3JD/view?usp=sharing"
                   target="_blank"
                   rel="noreferrer"
                 >

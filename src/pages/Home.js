@@ -86,7 +86,7 @@ export const Home = () => {
                 <button
                   onClick={() => {
                     window.open(
-                      "https://drive.google.com/file/d/17N3aYFRv1n6pfyIVJqTDXFNX9lyR6xg-/view?usp=sharing",
+                      "https://drive.google.com/file/d/1-5Q30O-qPWUh9uUV2oNT2hkAuF-Ln3JD/view?usp=sharing",
                       "_blank"
                     ); //to open new page
                   }}
